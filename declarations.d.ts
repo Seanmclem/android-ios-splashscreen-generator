@@ -1,0 +1,1 @@
+// example  `declare module 'react-router-dom';`

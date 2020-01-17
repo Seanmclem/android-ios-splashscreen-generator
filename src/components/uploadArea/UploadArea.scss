@@ -1,0 +1,16 @@
+#upload-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    &.thubnail {
+      height: auto;
+      width: 200px;
+    }
+  }
+
+  input {
+    margin: 20px;
+  }
+}
