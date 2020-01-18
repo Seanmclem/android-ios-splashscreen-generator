@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import './SplashHtmlArea.scss'
 import html2canvas from 'html2canvas'
 import imageCompression from 'browser-image-compression'
@@ -8,16 +8,22 @@ type propTypes = {
     logoUrl: any;
     // logoFile: File | undefined;
     backgroundColor?: any;
+    height: number;
+    width: number;
+    generatingZip: boolean;
+    setFilesList: any;
+    filesList: any;
     // setFileOutput: any;
 }
 
-export const SplashHtmlArea = ({ logoUrl, backgroundColor }: propTypes) => {
-    const splashAreaElement = useRef<HTMLDivElement>(null);
-    // useEffect(() => {
-    //     const hat = splashAreaElement
-    //     debugger;
-    // }, [splashAreaElement, logoUrl])
+export const SplashHtmlArea = ({ logoUrl, backgroundColor, height, width, generatingZip, setFilesList, filesList }: propTypes) => {
+    useEffect(() => {
+        if (generatingZip) {
 
+        }
+    }, [generatingZip])
+
+    const splashAreaElement = useRef<HTMLDivElement>(null);
     const generateFile = async () => {
         debugger
         const canvas = await html2canvas(splashAreaElement?.current as HTMLElement)
@@ -28,8 +34,8 @@ export const SplashHtmlArea = ({ logoUrl, backgroundColor }: propTypes) => {
     }
 
     const containerStyle = {
-        width: 480,
-        height: 320,
+        width: width,
+        height: height,
         backgroundColor: backgroundColor || 'white',
         display: 'flex',
         justifyContent: 'center',
@@ -37,7 +43,7 @@ export const SplashHtmlArea = ({ logoUrl, backgroundColor }: propTypes) => {
     }
 
     const imageStyle = {
-        width: 480 * .40,
+        width: width * .40,
         height: 'auto',
     }
 

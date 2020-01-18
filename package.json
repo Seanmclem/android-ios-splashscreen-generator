@@ -17,6 +17,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
+    "react-solid-state": "^0.16.1",
     "typescript": "^3.7.5"
   },
   "scripts": {
