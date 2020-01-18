@@ -3,18 +3,10 @@ import './AndroidPage.scss'
 import { UploadArea } from '../../components/uploadArea/UploadArea'
 import { SplashHtmlArea } from '../../components/splashHtmlArea/SplashHtmlArea'
 import { sizes } from '../../data/sizes'
-import { withSolid, useState as createState } from 'react-solid-state'
 
-export const AndroidPage = withSolid(() => {
-    const [generatingZip, setGeneratingZip] = useState(false)
+export const AndroidPage = () => {
     const sizeKeys = Object.keys(sizes.android)
-    const [filesList, setFilesList] = createState({ ready: [] });
-
-    useEffect(() => {
-        const hat = filesList.ready;
-        debugger;
-    }, [filesList])
-
+    const [currentIndex, setCurrentIndex] = useState(0)
     const [logoURL, setLogoURL] = useState<string>()
     const [logoFile, setLogoFile] = useState<File>()
 
@@ -23,23 +15,23 @@ export const AndroidPage = withSolid(() => {
     // })
     // console.log(sizeKeys)
 
-    return () => (
+    return (
         <div id="android-page">
             {/* <FileGenerator /> */}
             <UploadArea setLogoURL={setLogoURL} setLogoFile={setLogoFile} />
+            <button onClick={() => setCurrentIndex(currentIndex + 1)}>
+                Next
+            </button>
             <div className="splash-list">
                 {sizeKeys.map((sizeKey, index) => {
                     const size = sizes.android[sizeKey]
-                    if (index > 1) { return null }
+                    if (index !== currentIndex) { return null }
                     return (
-                        <div className="splash-spacer" key={sizeKey}>
+                        <div className="splash-spacer" key={sizeKey.toString()}>
                             <SplashHtmlArea
                                 width={size.width}
                                 height={size.width}
                                 logoUrl={logoURL}
-                                generatingZip={generatingZip}
-                                setFilesList={setFilesList}
-                                filesList={filesList}
                             />
                         </div>
                     )
@@ -50,4 +42,4 @@ export const AndroidPage = withSolid(() => {
             </button>
         </div>
     )
-})
+}
