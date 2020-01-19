@@ -46,7 +46,7 @@ export const AndroidPage = () => {
     }
 
     return (
-        <div id="android-page">
+        <div id="android-page" style={{ width: '100%' }}>
             {/* <FileGenerator /> */}
             <UploadArea setLogoURL={setLogoURL} setLogoFile={setLogoFile} />
             <BtnGenerateZip files={filesToSave} generateZip={generateZip} />
@@ -57,18 +57,18 @@ export const AndroidPage = () => {
                     </button>
                 )
             }
-            <button onClick={() => setCurrentIndex(currentIndex + 1)}>
+            <button onClick={() => setCurrentIndex(currentIndex + 1)} style={{ width: '100%' }}>
                 Next
             </button>
-            <div>
+            <div style={{ width: '100%' }}>
                 {sizeKeys[currentIndex].toString()}
             </div>
-            <div className="splash-list">
+            <div className="splash-list" style={{ width: '100%' }}>
                 {sizeKeys.map((sizeKey, index) => {
                     const size = sizes.android[sizeKey]
                     if (index !== currentIndex) { return null }
                     return (
-                        <div className="splash-spacer" key={sizeKey.toString()}>
+                        <div className="splash-spacer" key={sizeKey.toString()} style={{ width: '100%' }}>
                             <SplashHtmlArea index={index}
                                 width={size.width}
                                 height={size.height}
