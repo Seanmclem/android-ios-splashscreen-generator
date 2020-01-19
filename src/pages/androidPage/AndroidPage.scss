@@ -1,12 +1,19 @@
 #android-page {
   margin-top: 50px;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   .splash-spacer {
-    margin: 20px 0;
-    padding: 20px 0;
-
+    background-color: lightgray;
     display: flex;
     justify-content: center;
-    background-color: lightgray;
+    align-items: center;
+    .splash-html-area {
+      //   border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }

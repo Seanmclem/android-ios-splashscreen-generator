@@ -55,7 +55,7 @@ export const SplashHtmlArea = ({ logoUrl, backgroundColor, height, width, index,
     // if (index !== 4) { return null }
     return (
         <div>
-            {logoUrl && <button onClick={generateFile}>add file</button>}
+            <button onClick={generateFile}>add file</button>
             <div className='splash-html-area' style={containerStyle} ref={splashAreaElement}>
                 <img src={logoUrl} alt="nah" style={imageStyle} />
             </div>

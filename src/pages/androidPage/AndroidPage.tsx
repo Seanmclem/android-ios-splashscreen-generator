@@ -50,9 +50,19 @@ export const AndroidPage = () => {
             {/* <FileGenerator /> */}
             <UploadArea setLogoURL={setLogoURL} setLogoFile={setLogoFile} />
             <BtnGenerateZip files={filesToSave} generateZip={generateZip} />
+            {
+                currentIndex > 0 && (
+                    <button onClick={() => setCurrentIndex(currentIndex - 1)}>
+                        prev
+                    </button>
+                )
+            }
             <button onClick={() => setCurrentIndex(currentIndex + 1)}>
                 Next
             </button>
+            <div>
+                {sizeKeys[currentIndex].toString()}
+            </div>
             <div className="splash-list">
                 {sizeKeys.map((sizeKey, index) => {
                     const size = sizes.android[sizeKey]
@@ -71,9 +81,6 @@ export const AndroidPage = () => {
                     )
                 })}
             </div>
-            <button>
-                Generate Zip
-            </button>
         </div>
     )
 }
