@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import './SplashHtmlArea.scss'
 import html2canvas from 'html2canvas'
 import imageCompression from 'browser-image-compression'
-import { saveAs } from 'file-saver';
+import { useToasts } from 'react-toast-notifications'
 
 type propTypes = {
     logoUrl: any;
@@ -19,6 +19,7 @@ type propTypes = {
 
 export const SplashHtmlArea = ({ logoUrl, backgroundColor, height, width, index, setFilesToSave, filesToSave, folderName }: propTypes) => {
     const splashAreaElement = useRef<HTMLDivElement>(null);
+    const { addToast } = useToasts()
     // useEffect(() => {
     //     const hat = splashAreaElement
     //     debugger;
@@ -36,6 +37,7 @@ export const SplashHtmlArea = ({ logoUrl, backgroundColor, height, width, index,
         const newFile = await imageCompression.canvasToFile(canvas, 'image/png', 'splash.png', Date(), 1)
         var file = new File([newFile], "splash.png", { type: "image/png" })
         setFilesToSave([...filesToSave, { folderName, file }])
+        addToast(`Added file: ${folderName}/splash.png`, { appearance: 'success' })
         //saveAs(file, 'splash.png')
     }
 
