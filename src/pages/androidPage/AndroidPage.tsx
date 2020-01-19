@@ -52,15 +52,20 @@ export const AndroidPage = () => {
             <BtnGenerateZip files={filesToSave} generateZip={generateZip} />
             <div className="btns-next-prev">
                 {
-                    currentIndex > 0 && (
+                    (currentIndex > 0 && currentIndex !== 0) && (
                         <button onClick={() => setCurrentIndex(currentIndex - 1)}>
                             prev
-                    </button>
+                        </button>
                     )
                 }
-                <button onClick={() => setCurrentIndex(currentIndex + 1)}>
-                    Next
-            </button>
+
+                {
+                    (currentIndex !== (sizeKeys.length - 1)) && (
+                        <button onClick={() => setCurrentIndex(currentIndex + 1)}>
+                            Next
+                        </button>
+                    )
+                }
             </div>
             <div>
                 {sizeKeys[currentIndex].toString()}
