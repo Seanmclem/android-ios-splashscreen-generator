@@ -22,7 +22,7 @@ export const UploadArea = ({ setLogoURL, setLogoFile }: { setLogoURL: any; setLo
 
 
     return (
-        <div id='upload-area' style={{ width: '100%' }}>
+        <div id='upload-area'>
             <img className='thubnail' style={{ display: _imgSrc ? 'initial' : 'none' }} alt='lerding' ref={imgElement} />
             <input type='file' id='single' onChange={handleUpload} />
         </div>

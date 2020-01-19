@@ -4,7 +4,7 @@ import { AndroidPage } from './pages/androidPage/AndroidPage'
 
 const App: React.FC = () => {
   return (
-    <div className="App" style={{ width: '100%' }}>
+    <div className="App">
       <AndroidPage />
     </div >
   );
