@@ -1,0 +1,3 @@
+[submodule "src/components/react-form-fields"]
+	path = src/components/react-form-fields
+	url = https://github.com/Seanmclem/react-form-fields.git
