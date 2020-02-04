@@ -6,6 +6,7 @@ import { sizes } from '../../data/sizes'
 import JSZip from 'jszip'
 import { saveAs } from 'file-saver';
 import { BtnGenerateZip } from '../../components/btnGenerateZip/BtnGenerateZip'
+import { TextInput } from '../../components/react-form-fields/textInput/TextInput'
 
 
 export const AndroidPage = () => {
@@ -14,6 +15,7 @@ export const AndroidPage = () => {
     const sizeKeys = Object.keys(sizes.android)
     const [currentIndex, setCurrentIndex] = useState(0)
     const [logoURL, setLogoURL] = useState<string>()
+    const [backgroundColor, setBackgroundColor] = useState<string>('')
     const [logoFile, setLogoFile] = useState<File>()
 
     // NEED/TODO use setTimeout to make it work like a loop?. with js zip, ADD TO FOLDER https://stuk.github.io/jszip/
@@ -34,7 +36,7 @@ export const AndroidPage = () => {
             setZip(newZip)
         }
 
-    }, [filesToSave])
+    }, [filesToSave, zip])
 
     const generateZip = () => {
         debugger
@@ -47,7 +49,7 @@ export const AndroidPage = () => {
 
     return (
         <div id="android-page">
-            {/* <FileGenerator /> */}
+            <TextInput label="Background-color" name='backgroundcolor' text={backgroundColor} setText={setBackgroundColor} />
             <UploadArea setLogoURL={setLogoURL} setLogoFile={setLogoFile} />
             <BtnGenerateZip files={filesToSave} generateZip={generateZip} />
             <div className="btns-next-prev">
@@ -83,6 +85,7 @@ export const AndroidPage = () => {
                                 filesToSave={filesToSave}
                                 setFilesToSave={setFilesToSave}
                                 folderName={sizeKey.toString()}
+                                backgroundColor={backgroundColor}
                             />
                         </div>
                     )
