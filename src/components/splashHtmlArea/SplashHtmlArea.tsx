@@ -14,10 +14,21 @@ type propTypes = {
     setFilesToSave: any;
     filesToSave: any[]
     folderName: string;
+    imageType: string;
     // setFileOutput: any;
 }
 
-export const SplashHtmlArea = ({ logoUrl, backgroundColor, height, width, index, setFilesToSave, filesToSave, folderName }: propTypes) => {
+export const SplashHtmlArea = ({
+    logoUrl,
+    backgroundColor,
+    height,
+    width,
+    index,
+    setFilesToSave,
+    filesToSave,
+    folderName,
+    imageType
+}: propTypes) => {
     const splashAreaElement = useRef<HTMLDivElement>(null);
     const { addToast } = useToasts()
     // useEffect(() => {
@@ -51,7 +62,7 @@ export const SplashHtmlArea = ({ logoUrl, backgroundColor, height, width, index,
     }
 
     const imageStyle = {
-        width: width * .40,
+        width: imageType === 'iosIcon' ? '99%' : imageType === 'ios' ? width * .20 : width * .40,
         height: 'auto',
     }
     // if (index !== 4) { return null }
@@ -68,7 +79,7 @@ export const SplashHtmlArea = ({ logoUrl, backgroundColor, height, width, index,
 
             <div style={{ width: '100%' }}>
                 <div className='splash-html-area' style={containerStyle} ref={splashAreaElement}>
-                    <img src={logoUrl} alt="nah" style={imageStyle} />
+                    <img src={logoUrl} alt="no pic" style={imageStyle} />
                 </div>
             </div>
         </div>
